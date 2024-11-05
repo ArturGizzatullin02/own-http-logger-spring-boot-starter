@@ -12,6 +12,12 @@ public class LoggerAutoConfiguration {
     private final LoggerProperties properties;
 
     public LoggerAutoConfiguration(LoggerProperties properties) {
+        if (properties.isEnabled() == null) {
+            properties.setEnabled(true);
+        }
+        if (properties.getLevel() == null) {
+            properties.setLevel("SHORT");
+        }
         this.properties = properties;
     }
 
